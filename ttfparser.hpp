@@ -148,7 +148,7 @@ NSMutableDictionary* GetFontNameFromFile(char* ttfFilepath)
                 
                 NSData *data = [NSData dataWithBytes:lpszNameBuf length:(ttRecord.uStringLength + 1)];
                 NSString* nsFontName= [[NSString alloc]initWithData:data  encoding:NSUTF16StringEncoding];
-                
+                free(lpszNameBuf);
                 if(nsFontName.length > 0)
                 {
                     if(ttRecord.uLanguageID != 2052) //中文字体名
